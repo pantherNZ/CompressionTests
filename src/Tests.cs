@@ -3,27 +3,26 @@ using static CompressionTesting;
 
 class Testing
 {
-    static Compression[] compressions =
+    static readonly Compression[] compressions =
     {
         new( "gzip", x => GZip.Compress( x ), x => GZip.Decompress( x ) ),
         new( "deflate", x => Deflate.Compress( x ), x => Deflate.Decompress( x ) ),
     };
 
-    static byte[] LoadCards( string filename )
+    static byte[] LoadBinaryFile( string filename )
     {
         return File.ReadAllBytes( filename );
     }
 
-    private static Random random = new();
+    static readonly Random random = new();
+    static readonly char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
 
-    internal static readonly char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
-    public static string RandomString( int length )
+    static string RandomString( int length )
     {
-        return new string( Enumerable.Repeat( chars, length )
-            .Select( s => s[random.Next( s.Length )] ).ToArray() );
+        return new string( Enumerable.Repeat( chars, length ).Select( s => s[random.Next( s.Length )] ).ToArray() );
     }
 
-    public static string RepeatingString( string str, int length )
+    static string RepeatingString( string str, int length )
     {
         return string.Concat( Enumerable.Repeat( str, ( int )Math.Ceiling( length / 4.0f ) ) )[..length];
     }
@@ -36,11 +35,16 @@ class Testing
             foreach( var len in randomStringTests )
             {
                 TestCompression( $"{compression.name} - Random str ({len} chars)", RandomString( len ), compression );
-                TestCompression( $"{compression.name}  - Repeating str small ({len} chars)", RepeatingString( "test", len ), compression );
-                TestCompression( $"{compression.name}  - Repeating str large ({len} chars)", RepeatingString( "longer test repeating string", len ), compression );
+                TestCompression( $"{compression.name} - Repeating str small ({len} chars)", RepeatingString( "test", len ), compression );
+                TestCompression( $"{compression.name} - Repeating str large ({len} chars)", RepeatingString( "longer test repeating string", len ), compression );
             }
 
-            TestCompression( $"{compression.name}  - Large JSON", LoadCards( "cards.json" ), compression );
+            //TestCompression( $"{compression.name} - Large JSON", LoadBinaryFile( "cards.json" ), compression );
+            TestCompression( $"{compression.name} - YGO binder url eg1", "https://panthernz.github.io/YuGiOh-Portfolio/?binder=A[=7Bj;A}Ar oA A=|cA/A4A*A A8BRA9AmA]nB�AN !$$!BgBjBjBjA8=A*\"!BjBjBjBjBE4T%!BiBjBjBjmBdAy#!AvBjBjBj", compression );
+            TestCompression( $"{compression.name} - YGO binder url eg2", "https://panthernz.github.io/YuGiOh-Portfolio/?binder=\"A[=7Bj;A}A\"r+oA+A=|cA/A4A*A+A8BRA9AmA]nB%BEAN+!$$!BgBjBjBjA8=A*\"\"!BjBjBjBjBE4T%\"!BiBjBjBjmBdAy#\"!AvBjBjBj", compression );
+            
+            TestCompression( $"{compression.name} - YGO binder data raw eg1", LoadBinaryFile( "binder_raw_1.dat" ), compression );
+            TestCompression( $"{compression.name} - YGO binder data raw eg2", LoadBinaryFile( "binder_raw_2.dat" ), compression );
         }
     }
 

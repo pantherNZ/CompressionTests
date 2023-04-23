@@ -9,6 +9,7 @@ public class Deflate
         var compressedStream = new MemoryStream();
         var compressorStream = new DeflateStream( compressedStream, CompressionLevel.SmallestSize, true );
         uncompressedStream.CopyTo( compressorStream );
+        compressorStream.Close();
         return compressedStream.ToArray();
     }
 
@@ -18,6 +19,7 @@ public class Deflate
         using var decompressorStream = new DeflateStream( compressedStream, CompressionMode.Decompress );
         using var decompressedStream = new MemoryStream();
         decompressorStream.CopyTo( decompressedStream );
+        decompressorStream.Close();
         return decompressedStream.ToArray();
     }
 }

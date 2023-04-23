@@ -23,7 +23,7 @@ public class CompressionTesting
         Console.WriteLine( $"{testName} - Compressed bytes size: {compressed.Length}" );
         var decompressed = compression.decompress( compressed );
         if( decompressed.SequenceEqual( input ) )
-            Console.WriteLine( $"[SUCCESS] {testName} - Total compression from input: {( 100.0f * compressed.Length / input.Length )}%" );
+            Console.WriteLine( string.Format( "[SUCCESS] {0} - Total compression from input: {1:0.0}%", testName, 100.0f * compressed.Length / input.Length ) );
         else
         {
             Console.WriteLine( $"[FAILED] {testName} - Decompressed bytes did not match the input. Decompressed Size: {decompressed.Length}" );
