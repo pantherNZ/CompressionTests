@@ -1,12 +1,17 @@
 ﻿
-using static CompressionTesting;
+using Compression;
+using static Compression.CompressionTesting;
 
 class Testing
 {
-    static readonly Compression[] compressions =
+    static readonly Compressor[] compressions =
     {
-        new( "gzip", x => GZip.Compress( x ), x => GZip.Decompress( x ) ),
-        new( "deflate", x => Deflate.Compress( x ), x => Deflate.Decompress( x ) ),
+        new( "GZip", x => GZip.Compress( x ), x => GZip.Decompress( x ) ),
+        new( "Deflate", x => Deflate.Compress( x ), x => Deflate.Decompress( x ) ),
+        new( "BrotliSharpLib", x => BrotliSharp.Compress( x ), x => BrotliSharp.Decompress( x ) ),
+        new( "System.IO Brotli", x => BrotliSystem.Compress( x ), x => BrotliSystem.Decompress( x ) ),
+        new( "BZip2", x => BZip.Compress( x ), x => BZip.Decompress( x ) ),
+        new( "Snappy", x => Snappy.Compress( x ), x => Snappy.Decompress( x ) ),
     };
 
     static byte[] LoadBinaryFile( string filename )
@@ -38,13 +43,13 @@ class Testing
                 TestCompression( $"{compression.name} - Repeating str small ({len} chars)", RepeatingString( "test", len ), compression );
                 TestCompression( $"{compression.name} - Repeating str large ({len} chars)", RepeatingString( "longer test repeating string", len ), compression );
             }
-
+            
             //TestCompression( $"{compression.name} - Large JSON", LoadBinaryFile( "cards.json" ), compression );
             TestCompression( $"{compression.name} - YGO binder url eg1", "https://panthernz.github.io/YuGiOh-Portfolio/?binder=A[=7Bj;A}Ar oA A=|cA/A4A*A A8BRA9AmA]nB�AN !$$!BgBjBjBjA8=A*\"!BjBjBjBjBE4T%!BiBjBjBjmBdAy#!AvBjBjBj", compression );
             TestCompression( $"{compression.name} - YGO binder url eg2", "https://panthernz.github.io/YuGiOh-Portfolio/?binder=\"A[=7Bj;A}A\"r+oA+A=|cA/A4A*A+A8BRA9AmA]nB%BEAN+!$$!BgBjBjBjA8=A*\"\"!BjBjBjBjBE4T%\"!BiBjBjBjmBdAy#\"!AvBjBjBj", compression );
             
-            TestCompression( $"{compression.name} - YGO binder data raw eg1", LoadBinaryFile( "binder_raw_1.dat" ), compression );
-            TestCompression( $"{compression.name} - YGO binder data raw eg2", LoadBinaryFile( "binder_raw_2.dat" ), compression );
+            TestCompression( $"{compression.name} - YGO binder data raw eg1", LoadBinaryFile( "Binder1.dat" ), compression );
+            TestCompression( $"{compression.name} - YGO binder data raw eg2", LoadBinaryFile( "Binder2.dat" ), compression );
         }
     }
 

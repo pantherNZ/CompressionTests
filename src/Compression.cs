@@ -1,44 +1,47 @@
 ﻿using System.Text;
 
-public class CompressionTesting
+namespace Compression
 {
-    public struct Compression
+    public class CompressionTesting
     {
-        public Compression( string name, Func<byte[], byte[]> compress, Func<byte[], byte[]> decompress ) 
-        { 
-            this.name = name;
-            this.compress = compress; 
-            this.decompress = decompress;
+        public struct Compressor
+        {
+            public Compressor( string name, Func<byte[], byte[]> compress, Func<byte[], byte[]> decompress )
+            {
+                this.name = name;
+                this.compress = compress;
+                this.decompress = decompress;
+            }
+
+            public string name;
+            public Func<byte[], byte[]> compress;
+            public Func<byte[], byte[]> decompress;
         }
 
-        public string name;
-        public Func<byte[], byte[]> compress;
-        public Func<byte[], byte[]> decompress;
-    }
-
-    public static void TestCompression( string testName, byte[] input, Compression compression )
-    {
-        Console.WriteLine( $"{testName} - Input bytes size: {input.Length}" );
-        var compressed = compression.compress( input );
-        Console.WriteLine( $"{testName} - Compressed bytes size: {compressed.Length}" );
-        var decompressed = compression.decompress( compressed );
-        if( decompressed.SequenceEqual( input ) )
-            Console.WriteLine( string.Format( "[SUCCESS] {0} - Total compression from input: {1:0.0}%", testName, 100.0f * compressed.Length / input.Length ) );
-        else
+        public static void TestCompression( string testName, byte[] input, Compressor compression )
         {
-            Console.WriteLine( $"[FAILED] {testName} - Decompressed bytes did not match the input. Decompressed Size: {decompressed.Length}" );
-            for( int i = 0; i < decompressed.Length; ++i )
+            Console.WriteLine( $"{testName} - Input bytes size: {input.Length}" );
+            var compressed = compression.compress( input );
+            Console.WriteLine( $"{testName} - Compressed bytes size: {compressed.Length}" );
+            var decompressed = compression.decompress( compressed );
+            if( decompressed.SequenceEqual( input ) )
+                Console.WriteLine( string.Format( "[SUCCESS] {0} - Total compression from input: {1:0.0}%", testName, 100.0f * compressed.Length / input.Length ) );
+            else
             {
-                if( decompressed[i] != input[i] )
+                Console.WriteLine( $"[FAILED] {testName} - Decompressed bytes did not match the input. Decompressed Size: {decompressed.Length}" );
+                for( int i = 0; i < decompressed.Length; ++i )
                 {
-                    Console.WriteLine( $"Mismatching bytes: {decompressed[i]}, {input[i]}" );
+                    if( decompressed[i] != input[i] )
+                    {
+                        Console.WriteLine( $"Mismatching bytes: {decompressed[i]}, {input[i]}" );
+                    }
                 }
             }
         }
-    }
 
-    public static void TestCompression( string testName, string input, Compression compression )
-    {
-        TestCompression( testName, Encoding.UTF8.GetBytes( input ), compression );
+        public static void TestCompression( string testName, string input, Compressor compression )
+        {
+            TestCompression( testName, Encoding.UTF8.GetBytes( input ), compression );
+        }
     }
 }
