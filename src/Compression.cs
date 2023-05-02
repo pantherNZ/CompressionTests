@@ -20,12 +20,21 @@ namespace Compression
 
         public static void TestCompression( string testName, byte[] input, Compressor compression )
         {
-            Console.WriteLine( $"{testName} - Input bytes size: {input.Length}" );
+            var timer = System.Diagnostics.Stopwatch.StartNew();
             var compressed = compression.compress( input );
-            Console.WriteLine( $"{testName} - Compressed bytes size: {compressed.Length}" );
+            var compressTime = timer.ElapsedMilliseconds;
+
+            timer.Restart();
             var decompressed = compression.decompress( compressed );
+            var decompressTime = timer.ElapsedMilliseconds;
+
             if( decompressed.SequenceEqual( input ) )
-                Console.WriteLine( string.Format( "[SUCCESS] {0} - Total compression from input: {1:0.0}%", testName, 100.0f * compressed.Length / input.Length ) );
+                Console.WriteLine( string.Format( "[SUCCESS] {0} - In: {1}, Out: {2}, {3:0.0}%, {4}ms {5}ms {6}ms", 
+                    testName, 
+                    input.Length, 
+                    compressed.Length, 
+                    100.0f * compressed.Length / input.Length,
+                    compressTime, decompressTime, compressTime + decompressTime ) );
             else
             {
                 Console.WriteLine( $"[FAILED] {testName} - Decompressed bytes did not match the input. Decompressed Size: {decompressed.Length}" );

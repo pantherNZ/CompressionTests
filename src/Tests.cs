@@ -36,7 +36,9 @@ class Testing
     {
         foreach( var compression in compressions )
         {
-            List<int> randomStringTests = new() { 4, 8, 20, 40, 100, 256, 512, 1024, 2056, 4096, 10000, 20000, 50000, 100000 };
+            List<int> randomStringTests = new() { 8, 20, 100, 256, 512, 1024, 2056, 4096, 10000, 50000, 100000 };
+            TestCompression( $"{compression.name} - Large JSON", LoadBinaryFile( "cards.json" ), compression );
+            
             foreach( var len in randomStringTests )
             {
                 TestCompression( $"{compression.name} - Random str ({len} chars)", RandomString( len ), compression );
@@ -44,7 +46,6 @@ class Testing
                 TestCompression( $"{compression.name} - Repeating str large ({len} chars)", RepeatingString( "longer test repeating string", len ), compression );
             }
             
-            //TestCompression( $"{compression.name} - Large JSON", LoadBinaryFile( "cards.json" ), compression );
             TestCompression( $"{compression.name} - YGO binder url eg1", "https://panthernz.github.io/YuGiOh-Portfolio/?binder=A[=7Bj;A}Ar oA A=|cA/A4A*A A8BRA9AmA]nB�AN !$$!BgBjBjBjA8=A*\"!BjBjBjBjBE4T%!BiBjBjBjmBdAy#!AvBjBjBj", compression );
             TestCompression( $"{compression.name} - YGO binder url eg2", "https://panthernz.github.io/YuGiOh-Portfolio/?binder=\"A[=7Bj;A}A\"r+oA+A=|cA/A4A*A+A8BRA9AmA]nB%BEAN+!$$!BgBjBjBjA8=A*\"\"!BjBjBjBjBE4T%\"!BiBjBjBjmBdAy#\"!AvBjBjBj", compression );
             
