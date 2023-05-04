@@ -1,0 +1,229 @@
+Name,Input Length (Bytes),Compress Time (MS),Decompress Time (MS),Compression Ratio (%)
+GZip - Large JSON,15580785,186.23,23.06,14.48
+GZip - Random str (8 chars),8,0.10,0.02,350.00
+GZip - Repeating str small (8 chars),8,0.05,0.01,337.50
+GZip - Repeating str large (8 chars),8,0.03,0.00,350.00
+GZip - Random str (20 chars),20,0.01,0.00,200.00
+GZip - Repeating str small (20 chars),20,0.01,0.00,135.00
+GZip - Repeating str large (20 chars),20,0.01,0.00,200.00
+GZip - Random str (100 chars),100,0.02,0.00,120.00
+GZip - Repeating str small (100 chars),100,0.01,0.00,27.00
+GZip - Repeating str large (100 chars),100,0.02,0.00,50.00
+GZip - Random str (256 chars),256,0.03,0.01,92.97
+GZip - Repeating str small (256 chars),256,0.01,0.00,10.55
+GZip - Repeating str large (256 chars),256,0.01,0.00,19.53
+GZip - Random str (512 chars),512,0.03,0.01,83.59
+GZip - Repeating str small (512 chars),512,0.01,0.00,6.05
+GZip - Repeating str large (512 chars),512,0.01,0.00,10.55
+GZip - Random str (1024 chars),1024,0.04,0.01,79.10
+GZip - Repeating str small (1024 chars),1024,0.01,0.00,3.52
+GZip - Repeating str large (1024 chars),1024,0.02,0.01,5.76
+GZip - Random str (2056 chars),2056,0.06,0.01,76.95
+GZip - Repeating str small (2056 chars),2056,0.02,0.01,2.24
+GZip - Repeating str large (2056 chars),2056,0.02,0.01,3.40
+GZip - Random str (4096 chars),4096,0.11,0.02,75.95
+GZip - Repeating str small (4096 chars),4096,0.01,0.01,1.49
+GZip - Repeating str large (4096 chars),4096,0.02,0.01,2.20
+GZip - Random str (10000 chars),10000,0.27,0.04,75.65
+GZip - Repeating str small (10000 chars),10000,0.03,0.02,0.90
+GZip - Repeating str large (10000 chars),10000,0.02,0.01,1.27
+GZip - Random str (50000 chars),50000,1.25,0.15,75.70
+GZip - Repeating str small (50000 chars),50000,0.03,0.03,0.57
+GZip - Repeating str large (50000 chars),50000,0.04,0.03,0.72
+GZip - Random str (100000 chars),100000,3.16,0.31,75.72
+GZip - Repeating str small (100000 chars),100000,0.06,0.04,0.53
+GZip - Repeating str large (100000 chars),100000,0.10,0.07,0.66
+GZip - YGO binder url eg1,154,0.03,0.01,100.65
+GZip - YGO binder url eg2,159,0.03,0.01,97.48
+GZip - YGO binder data raw eg1,341,0.04,0.02,87.98
+GZip - YGO binder data raw eg2,66,0.02,0.01,122.73
+Deflate - Large JSON,15580785,476.13,35.21,14.18
+Deflate - Random str (8 chars),8,0.08,0.02,125.00
+Deflate - Repeating str small (8 chars),8,0.04,0.01,100.00
+Deflate - Repeating str large (8 chars),8,0.02,0.01,125.00
+Deflate - Random str (20 chars),20,0.02,0.01,110.00
+Deflate - Repeating str small (20 chars),20,0.02,0.01,40.00
+Deflate - Repeating str large (20 chars),20,0.01,0.01,110.00
+Deflate - Random str (100 chars),100,0.02,0.01,101.00
+Deflate - Repeating str small (100 chars),100,0.01,0.01,9.00
+Deflate - Repeating str large (100 chars),100,0.02,0.01,32.00
+Deflate - Random str (256 chars),256,0.03,0.01,85.16
+Deflate - Repeating str small (256 chars),256,0.02,0.01,3.52
+Deflate - Repeating str large (256 chars),256,0.02,0.01,12.50
+Deflate - Random str (512 chars),512,0.03,0.01,80.08
+Deflate - Repeating str small (512 chars),512,0.02,0.01,2.15
+Deflate - Repeating str large (512 chars),512,0.02,0.01,6.64
+Deflate - Random str (1024 chars),1024,0.04,0.01,77.34
+Deflate - Repeating str small (1024 chars),1024,0.02,0.01,1.37
+Deflate - Repeating str large (1024 chars),1024,0.02,0.01,3.71
+Deflate - Random str (2056 chars),2056,0.04,0.02,75.97
+Deflate - Repeating str small (2056 chars),2056,0.02,0.01,0.97
+Deflate - Repeating str large (2056 chars),2056,0.02,0.01,2.24
+Deflate - Random str (4096 chars),4096,0.08,0.03,75.51
+Deflate - Repeating str small (4096 chars),4096,0.07,0.05,0.61
+Deflate - Repeating str large (4096 chars),4096,0.04,0.01,1.29
+Deflate - Random str (10000 chars),10000,0.22,0.06,75.24
+Deflate - Repeating str small (10000 chars),10000,0.06,0.02,0.31
+Deflate - Repeating str large (10000 chars),10000,0.07,0.02,0.68
+Deflate - Random str (50000 chars),50000,1.31,0.20,75.18
+Deflate - Repeating str small (50000 chars),50000,0.24,0.05,0.14
+Deflate - Repeating str large (50000 chars),50000,0.27,0.10,0.33
+Deflate - Random str (100000 chars),100000,1.87,0.26,75.20
+Deflate - Repeating str small (100000 chars),100000,0.42,0.10,0.12
+Deflate - Repeating str large (100000 chars),100000,0.43,0.09,0.29
+Deflate - YGO binder url eg1,154,0.03,0.01,88.96
+Deflate - YGO binder url eg2,159,0.03,0.01,86.16
+Deflate - YGO binder data raw eg1,341,0.04,0.01,82.40
+Deflate - YGO binder data raw eg2,66,0.02,0.01,95.45
+BrotliSharpLib - Large JSON,15580785,39425.10,63.67,7.21
+BrotliSharpLib - Random str (8 chars),8,1.43,0.56,150.00
+BrotliSharpLib - Repeating str small (8 chars),8,0.48,0.38,150.00
+BrotliSharpLib - Repeating str large (8 chars),8,0.46,0.02,137.50
+BrotliSharpLib - Random str (20 chars),20,0.73,0.02,120.00
+BrotliSharpLib - Repeating str small (20 chars),20,0.40,0.02,65.00
+BrotliSharpLib - Repeating str large (20 chars),20,0.75,0.01,120.00
+BrotliSharpLib - Random str (100 chars),100,0.68,0.79,92.00
+BrotliSharpLib - Repeating str small (100 chars),100,0.77,0.02,13.00
+BrotliSharpLib - Repeating str large (100 chars),100,0.63,0.02,31.00
+BrotliSharpLib - Random str (256 chars),256,0.79,0.03,82.42
+BrotliSharpLib - Repeating str small (256 chars),256,1.62,0.02,5.08
+BrotliSharpLib - Repeating str large (256 chars),256,0.70,0.02,13.67
+BrotliSharpLib - Random str (512 chars),512,1.07,0.02,80.86
+BrotliSharpLib - Repeating str small (512 chars),512,0.51,0.02,2.54
+BrotliSharpLib - Repeating str large (512 chars),512,0.53,0.02,6.84
+BrotliSharpLib - Random str (1024 chars),1024,1.23,0.16,77.83
+BrotliSharpLib - Repeating str small (1024 chars),1024,0.69,0.02,1.27
+BrotliSharpLib - Repeating str large (1024 chars),1024,0.54,0.02,3.42
+BrotliSharpLib - Random str (2056 chars),2056,2.12,0.04,76.46
+BrotliSharpLib - Repeating str small (2056 chars),2056,0.69,0.02,0.68
+BrotliSharpLib - Repeating str large (2056 chars),2056,0.59,0.02,1.70
+BrotliSharpLib - Random str (4096 chars),4096,3.43,0.04,75.76
+BrotliSharpLib - Repeating str small (4096 chars),4096,1.06,0.03,0.37
+BrotliSharpLib - Repeating str large (4096 chars),4096,0.82,0.03,0.90
+BrotliSharpLib - Random str (10000 chars),10000,8.02,0.09,75.45
+BrotliSharpLib - Repeating str small (10000 chars),10000,1.46,0.04,0.15
+BrotliSharpLib - Repeating str large (10000 chars),10000,1.47,0.05,0.37
+BrotliSharpLib - Random str (50000 chars),50000,56.17,0.34,75.10
+BrotliSharpLib - Repeating str small (50000 chars),50000,6.14,0.12,0.03
+BrotliSharpLib - Repeating str large (50000 chars),50000,3.01,0.11,0.07
+BrotliSharpLib - Random str (100000 chars),100000,95.65,1.08,75.12
+BrotliSharpLib - Repeating str small (100000 chars),100000,9.79,0.19,0.02
+BrotliSharpLib - Repeating str large (100000 chars),100000,5.49,0.18,0.04
+BrotliSharpLib - YGO binder url eg1,154,1.45,0.02,92.21
+BrotliSharpLib - YGO binder url eg2,159,1.32,0.03,84.28
+BrotliSharpLib - YGO binder data raw eg1,341,3.02,0.03,77.13
+BrotliSharpLib - YGO binder data raw eg2,66,1.73,0.02,106.06
+System.IO Brotli - Large JSON,15580785,21950.98,20.65,7.43
+System.IO Brotli - Random str (8 chars),8,0.61,0.01,150.00
+System.IO Brotli - Repeating str small (8 chars),8,0.47,0.01,150.00
+System.IO Brotli - Repeating str large (8 chars),8,0.60,0.02,137.50
+System.IO Brotli - Random str (20 chars),20,0.54,0.01,120.00
+System.IO Brotli - Repeating str small (20 chars),20,0.47,0.01,65.00
+System.IO Brotli - Repeating str large (20 chars),20,0.52,0.01,120.00
+System.IO Brotli - Random str (100 chars),100,0.62,0.01,93.00
+System.IO Brotli - Repeating str small (100 chars),100,0.53,0.01,13.00
+System.IO Brotli - Repeating str large (100 chars),100,0.57,0.01,31.00
+System.IO Brotli - Random str (256 chars),256,0.69,0.01,81.64
+System.IO Brotli - Repeating str small (256 chars),256,0.85,0.01,5.47
+System.IO Brotli - Repeating str large (256 chars),256,0.64,0.01,13.67
+System.IO Brotli - Random str (512 chars),512,0.78,0.02,78.71
+System.IO Brotli - Repeating str small (512 chars),512,0.64,0.01,2.73
+System.IO Brotli - Repeating str large (512 chars),512,0.52,0.01,6.84
+System.IO Brotli - Random str (1024 chars),1024,0.79,0.01,76.27
+System.IO Brotli - Repeating str small (1024 chars),1024,0.54,0.01,1.37
+System.IO Brotli - Repeating str large (1024 chars),1024,0.54,0.01,3.42
+System.IO Brotli - Random str (2056 chars),2056,1.14,0.02,75.54
+System.IO Brotli - Repeating str small (2056 chars),2056,0.63,0.01,0.68
+System.IO Brotli - Repeating str large (2056 chars),2056,0.54,0.02,1.70
+System.IO Brotli - Random str (4096 chars),4096,1.94,0.02,75.02
+System.IO Brotli - Repeating str small (4096 chars),4096,0.83,0.02,0.39
+System.IO Brotli - Repeating str large (4096 chars),4096,0.68,0.02,0.90
+System.IO Brotli - Random str (10000 chars),10000,4.53,0.04,74.73
+System.IO Brotli - Repeating str small (10000 chars),10000,1.42,0.04,0.16
+System.IO Brotli - Repeating str large (10000 chars),10000,1.14,0.03,0.37
+System.IO Brotli - Random str (50000 chars),50000,28.84,0.19,74.62
+System.IO Brotli - Repeating str small (50000 chars),50000,4.21,0.13,0.03
+System.IO Brotli - Repeating str large (50000 chars),50000,2.61,0.15,0.07
+System.IO Brotli - Random str (100000 chars),100000,56.31,0.42,74.60
+System.IO Brotli - Repeating str small (100000 chars),100000,9.75,0.23,0.02
+System.IO Brotli - Repeating str large (100000 chars),100000,4.70,0.19,0.04
+System.IO Brotli - YGO binder url eg1,154,1.00,0.02,89.61
+System.IO Brotli - YGO binder url eg2,159,0.84,0.01,82.39
+System.IO Brotli - YGO binder data raw eg1,341,1.40,0.02,77.42
+System.IO Brotli - YGO binder data raw eg2,66,1.33,0.01,106.06
+BZip2 - Large JSON,15580785,1695.32,346.48,7.52
+BZip2 - Random str (8 chars),8,0.58,0.03,637.50
+BZip2 - Repeating str small (8 chars),8,0.80,19.35,525.00
+BZip2 - Repeating str large (8 chars),8,0.71,0.27,587.50
+BZip2 - Random str (20 chars),20,0.83,0.26,315.00
+BZip2 - Repeating str small (20 chars),20,0.76,0.26,215.00
+BZip2 - Repeating str large (20 chars),20,0.79,0.25,275.00
+BZip2 - Random str (100 chars),100,0.77,0.25,134.00
+BZip2 - Repeating str small (100 chars),100,0.81,0.24,46.00
+BZip2 - Repeating str large (100 chars),100,0.75,0.23,71.00
+BZip2 - Random str (256 chars),256,0.77,0.23,111.72
+BZip2 - Repeating str small (256 chars),256,0.99,0.23,17.19
+BZip2 - Repeating str large (256 chars),256,0.84,0.22,30.08
+BZip2 - Random str (512 chars),512,0.83,0.24,95.31
+BZip2 - Repeating str small (512 chars),512,1.95,0.21,8.79
+BZip2 - Repeating str large (512 chars),512,1.45,0.28,16.41
+BZip2 - Random str (1024 chars),1024,1.02,0.30,86.04
+BZip2 - Repeating str small (1024 chars),1024,5.63,0.21,4.39
+BZip2 - Repeating str large (1024 chars),1024,5.54,0.24,8.40
+BZip2 - Random str (2056 chars),2056,1.29,0.31,81.13
+BZip2 - Repeating str small (2056 chars),2056,21.76,0.40,2.29
+BZip2 - Repeating str large (2056 chars),2056,16.97,0.26,4.38
+BZip2 - Random str (4096 chars),4096,1.87,0.47,78.25
+BZip2 - Repeating str small (4096 chars),4096,6.68,0.61,1.56
+BZip2 - Repeating str large (4096 chars),4096,2.47,0.15,2.83
+BZip2 - Random str (10000 chars),10000,3.07,0.79,76.23
+BZip2 - Repeating str small (10000 chars),10000,15.75,0.41,0.92
+BZip2 - Repeating str large (10000 chars),10000,5.74,0.36,1.58
+BZip2 - Random str (50000 chars),50000,6.92,2.21,75.25
+BZip2 - Repeating str small (50000 chars),50000,110.63,0.78,0.51
+BZip2 - Repeating str large (50000 chars),50000,26.53,0.79,0.72
+BZip2 - Random str (100000 chars),100000,10.61,4.39,75.14
+BZip2 - Repeating str small (100000 chars),100000,283.42,1.37,0.45
+BZip2 - Repeating str large (100000 chars),100000,61.74,1.50,0.56
+BZip2 - YGO binder url eg1,154,0.95,0.27,111.04
+BZip2 - YGO binder url eg2,159,0.85,0.24,108.18
+BZip2 - YGO binder data raw eg1,341,0.90,0.25,114.66
+BZip2 - YGO binder data raw eg2,66,0.76,0.23,187.88
+Snappy - Large JSON,15580785,36.12,20.10,25.40
+Snappy - Random str (8 chars),8,0.01,0.00,125.00
+Snappy - Repeating str small (8 chars),8,0.00,0.00,125.00
+Snappy - Repeating str large (8 chars),8,0.00,0.00,125.00
+Snappy - Random str (20 chars),20,0.00,0.00,110.00
+Snappy - Repeating str small (20 chars),20,0.00,0.00,45.00
+Snappy - Repeating str large (20 chars),20,0.00,0.00,110.00
+Snappy - Random str (100 chars),100,0.00,0.00,103.00
+Snappy - Repeating str small (100 chars),100,0.00,0.00,12.00
+Snappy - Repeating str large (100 chars),100,0.00,0.00,35.00
+Snappy - Random str (256 chars),256,0.00,0.00,101.56
+Snappy - Repeating str small (256 chars),256,0.00,0.00,7.42
+Snappy - Repeating str large (256 chars),256,0.00,0.00,16.80
+Snappy - Random str (512 chars),512,0.00,0.00,100.98
+Snappy - Repeating str small (512 chars),512,0.00,0.00,6.05
+Snappy - Repeating str large (512 chars),512,0.00,0.00,10.74
+Snappy - Random str (1024 chars),1024,0.00,0.00,100.49
+Snappy - Repeating str small (1024 chars),1024,0.00,0.00,5.37
+Snappy - Repeating str large (1024 chars),1024,0.00,0.00,7.71
+Snappy - Random str (2056 chars),2056,0.00,0.00,100.24
+Snappy - Repeating str small (2056 chars),2056,0.00,0.00,5.11
+Snappy - Repeating str large (2056 chars),2056,0.00,0.00,6.18
+Snappy - Random str (4096 chars),4096,0.00,0.00,100.12
+Snappy - Repeating str small (4096 chars),4096,0.00,0.00,4.86
+Snappy - Repeating str large (4096 chars),4096,0.00,0.00,5.44
+Snappy - Random str (10000 chars),10000,0.00,0.00,100.05
+Snappy - Repeating str small (10000 chars),10000,0.01,0.01,4.78
+Snappy - Repeating str large (10000 chars),10000,0.01,0.01,4.99
+Snappy - Random str (50000 chars),50000,0.01,0.01,100.01
+Snappy - Repeating str small (50000 chars),50000,0.03,0.04,4.71
+Snappy - Repeating str large (50000 chars),50000,0.03,0.03,4.75
+Snappy - Random str (100000 chars),100000,0.02,0.01,100.01
+Snappy - Repeating str small (100000 chars),100000,0.05,0.07,4.70
+Snappy - Repeating str large (100000 chars),100000,0.06,0.07,4.75
+Snappy - YGO binder url eg1,154,0.00,0.00,101.30
+Snappy - YGO binder url eg2,159,0.00,0.00,98.74
+Snappy - YGO binder data raw eg1,341,0.00,0.00,101.47
+Snappy - YGO binder data raw eg2,66,0.00,0.00,104.55

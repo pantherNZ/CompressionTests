@@ -18,23 +18,45 @@ namespace Compression
             public Func<byte[], byte[]> decompress;
         }
 
+        public class Result
+        {
+            public string name;
+            public int inputLength;
+            public double compressTime;
+            public double decompressTime;
+            public float compressionPercent;
+        }
+
+        public static List<Result> results = new();
+
         public static void TestCompression( string testName, byte[] input, Compressor compression )
         {
             var timer = System.Diagnostics.Stopwatch.StartNew();
             var compressed = compression.compress( input );
-            var compressTime = timer.ElapsedMilliseconds;
+            var compressTime = timer.Elapsed.TotalMilliseconds;
 
             timer.Restart();
             var decompressed = compression.decompress( compressed );
-            var decompressTime = timer.ElapsedMilliseconds;
+            var decompressTime = timer.Elapsed.TotalMilliseconds;
 
             if( decompressed.SequenceEqual( input ) )
-                Console.WriteLine( string.Format( "[SUCCESS] {0} - In: {1}, Out: {2}, {3:0.0}%, {4}ms {5}ms {6}ms", 
-                    testName, 
-                    input.Length, 
-                    compressed.Length, 
-                    100.0f * compressed.Length / input.Length,
-                    compressTime, decompressTime, compressTime + decompressTime ) );
+            {
+                float compressPercent = 100.0f * compressed.Length / input.Length;
+                Console.WriteLine( string.Format( "[SUCCESS] {0} - In: {1}, Out: {2}, {3:0.00}%, {4}ms {5}ms {6}ms",
+                      testName,
+                      input.Length,
+                      compressed.Length,
+                      compressPercent,
+                      compressTime, decompressTime, compressTime + decompressTime ) );
+                results.Add( new Result()
+                {
+                    name = testName,
+                    inputLength = input.Length,
+                    compressTime = compressTime,
+                    decompressTime = decompressTime,
+                    compressionPercent = compressPercent
+                } );
+            }
             else
             {
                 Console.WriteLine( $"[FAILED] {testName} - Decompressed bytes did not match the input. Decompressed Size: {decompressed.Length}" );

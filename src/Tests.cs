@@ -54,8 +54,36 @@ class Testing
         }
     }
 
+    static void ExportResultsData()
+    {
+        using( StreamWriter writer = new( "results.csv" ) )
+        {
+            writer.WriteLine( string.Join( ",", new String[]
+            {
+                "Name",
+                "Input Length (Bytes)",
+                "Compress Time (MS)",
+                "Decompress Time (MS)",
+                "Compression Ratio (%)",
+            } ) );
+
+            foreach( var result in results )
+            {
+                writer.WriteLine( string.Join( ",", new String[] 
+                { 
+                    result.name,
+                    result.inputLength.ToString(),
+                    result.compressTime.ToString("0.00"),
+                    result.decompressTime.ToString("0.00"),
+                    result.compressionPercent.ToString("0.00"),
+                } ) );
+            }
+        }
+    }
+
     static void Main( string[] _ )
     {
         RunAllTests();
+        ExportResultsData();
     }
 }
